@@ -1,3 +1,6 @@
+# 2020.1.28
+# group()决定了只能四种花色，run()则可以突破13的限制
+
 from process import take_number
 
 def check(cards_origin):
@@ -33,14 +36,16 @@ def check(cards_origin):
         return True
 
     if 500 not in cards_origin:
-        for card in cards_origin:
-            if not check_one(cards_origin,card):
-                return False
+        # for card in cards_origin:
+        card=cards_origin[-1]
+        if not check_one(cards_origin,card):
+            return False
         return True
     else:
         cards_origin.remove(500)
         for joker in [i * 100 + j for i in range(1, 5) for j in range(1, 14)]:
             cards_origin.append(joker)
+            # cards_origin=[joker]+cards_origin
             if check(cards_origin):
                 return True
             cards_origin.remove(joker)
@@ -92,9 +97,12 @@ def group(cards,target):
 
 
 def main():
-    cards=[111,211,311,411,
+    cards=[110,210,310,110,
+           111,211,311,411,
            112,
-           113,500,500]
+           113,
+           101,201,301
+           ]
     card=111
     # print(run(cards,card))
     # print(group(cards,card))

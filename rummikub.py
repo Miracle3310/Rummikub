@@ -104,6 +104,9 @@ class player():
             self.take_out(cards)
         return cards
 
+    def cards_sort(self):
+        self.card.sort()
+
 
 class desk():
     def __init__(self):
@@ -168,10 +171,11 @@ def main():
     p_all=[player(i) for i in range(player_number)]
     # print(p[0].number)
     deck_p=card_decks()
+    deck_p.shuffle() #洗牌
     desk_p=desk()  # p表示playing
 
     for p in p_all:
-        p.card=deck_p.draw(6)
+        p.card=deck_p.draw(13) #起始手牌数量
 
     over=False
     while not over:
@@ -180,8 +184,10 @@ def main():
                 break
             print('-'*50)
             print(str(p.number+1)+'号玩家出牌')
-            print(p.card)
-            if 'p'!=input('是否出牌（p）'): # 选择摸牌
+            p.cards_sort()  # 理牌
+            print('手牌：', p.card)
+            print('桌面：', desk_p.card)
+            if 'p'!=input('是否出牌（p）：'): # 选择摸牌
                 p.card+=deck_p.draw(1)
                 if deck_p.quantity==0:
                     over=True
@@ -194,6 +200,7 @@ def main():
                     play_off=False # 控制打出的牌是否合规
                     while (not play_off) : # 直到打出的牌合规
                         try:
+                            p.cards_sort() # 理牌
                             print('手牌：',p.card)
                             print('桌面：',desk_p.card)
                             cards = input('输入要打的牌（空格隔开，n表示不出牌）：\n')  # todo:未检查是否符合语法
@@ -232,10 +239,6 @@ def main():
     print('-'*50)
     print('Game Over!')
     print('Winner:',str(winner+1)+'号玩家')
-
-
-
-
 
 
 
