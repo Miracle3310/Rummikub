@@ -1,0 +1,29 @@
+QLabel#Timer{
+    background-color:white;
+    border-width:3px;
+    border-style:solid;
+    font-family:Consolas;
+    font-size:35px;
+    font-weight:900;
+}
+
+QWidget#area_player{
+    border-width:6px;
+border-color: rgb(0, 255, 0);
+border-style:solid;
+}
+
+QWidget#area_desk{
+    border-color: rgb(0, 0, 255);
+    border-width:3px;
+    border-style:solid;
+}
+
+QLabel#card{
+    background-color:rgb(238,222,176);
+    border-width:3px;
+    border-style:solid;
+    font-family:Consolas;
+    font-size:35px;
+    font-weight:900;
+}

@@ -1,7 +1,7 @@
 # 2020.1.28
 # group()决定了只能四种花色，run()则可以突破13的限制
 
-from process import take_number
+from game.process import take_number
 
 def check(cards_origin):
     '''

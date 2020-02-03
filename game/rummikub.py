@@ -1,8 +1,6 @@
 import random
-import rule
-import process
-import numpy as np
-from rummikub_desk_check import check
+from game import rule, process
+from game.rummikub_desk_check import check
 '''
 单机对战：
 1. 三大类：牌堆，玩家，桌面
@@ -73,7 +71,7 @@ class player():
 
     @property
     def cards_sum(self):
-        number_list=process.take_number(self.card)
+        number_list= process.take_number(self.card)
         return sum(number_list)
 
     def take_out(self, cards):
