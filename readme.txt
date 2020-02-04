@@ -15,6 +15,8 @@
 
 结束：某位玩家手牌为0 | 牌堆为0，玩家手牌点数最小者
 
+todo:
+1.不能检查joker是否符合破冰要求；
 
 拉密介绍
 https://www.gcores.com/articles/96361
